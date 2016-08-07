@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmailPost extends Migration
+class CreateIdColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateEmailPost extends Migration
     public function up()
     {
         Schema::table('posts', function($table){
-            $table->string('email')->after('body');
+            $table->integer('user_id')->unsigned()->after('body');
 
-            $table->foreign('email')->references('email')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,8 +26,6 @@ class CreateEmailPost extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function($table){
-            $table->dropColumn('email');
-        });
+        $table->dropForeign('posts_user_id_foreign');
     }
 }

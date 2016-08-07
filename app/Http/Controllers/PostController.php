@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\User;
 use Session;
+use Auth;
 
 class PostController extends Controller
 {
@@ -24,7 +26,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::orderBy('id', 'desc')->paginate(5);
+        $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
         return view('posts.index')->withPosts($posts);
         
     }
@@ -60,9 +62,8 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->slug  = $request->slug;
-        $post->body  = $request->body;
-
-        $post->save();
+        $post->body  = $request->body; 
+        Auth::user()->posts()->save($post);
 
         Session::flash('success', 'Post Successfully published!');
         //redirect to home page

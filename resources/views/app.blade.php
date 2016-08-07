@@ -50,7 +50,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, {{ Auth::user()->name }}
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('posts.index') }}">Posts</a></li>                            
+                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('posts.index') }}">My Posts</a></li>                            
                             <li><a href="{{ route('logout') }}">Logout</a></li>                          
                         </ul>
                     </li>
