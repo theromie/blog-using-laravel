@@ -8,9 +8,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
-                    <h1>All Post</h1>
+                    <h1>Your Post</h1>
                     <hr class="small">
-                    <span class="subheading">Laravel 5.2 Test Blog</span>
+                    <span class="subheading">{{ Auth::user()->name }}</span>
                 </div>
             </div>
         </div>
@@ -20,11 +20,10 @@
     <div class="row">
         <div class="col-lg-12">
             @include('message')
-        	<h1>All Posts<span class="pull-right"><a href="{{ route('posts.create') }}" class="btn btn-info">Create New Post</a></span></h1>        	
+        	<h1>Your Posts<span class="pull-right"><a href="{{ route('posts.create') }}" class="btn btn-info">Create New Post</a></span></h1>        	
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                      <th>#</th>
+                    <tr>                      
                       <th>Title</th>
                       <th>Description</th>
                       <th>Created At</th>
@@ -34,8 +33,7 @@
                 </thead>
                 <tbody>
                     @foreach ($posts as $post)
-                    <tr>
-                        <td>{{ $post->id }}</td>
+                    <tr>                        
                         <td>{{ $post->title }}</td>
                         <td>{{ substr($post->body, 0, 50) }}</td>
                         <td>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</td>
