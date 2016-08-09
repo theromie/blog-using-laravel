@@ -27,10 +27,13 @@
                         {{ Form::text('title', null, array('class' => 'form-control input-lg', 'required' => '', 'maxlength' => '255', 'autofocus')) }}
 
                         {{ Form::label('slug', 'Slug:', array('style' => 'font-weight:400;'))}}
-                        {{ Form::text('slug', null, array('class' => 'form-control input-lg', 'required' => '', 'minlength' => '5', 'maxlength' => '255')) }}
+                        {{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '255')) }}
 
-                        {{ Form::label('body', 'Post Body:', array('style' => 'font-weight:400;margin-top:20px;'))}}
-                        {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'style' => 'resize:none;'))}}
+                        {{ Form::label('category_id', 'Category:', array('style' => 'font-weight:500;margin-top:20px;')) }}
+                        {{ Form::select('category_id', $categories, null, array('class' => 'form-control', 'required' => '')) }}
+
+                        {{ Form::label('body', 'Post Body:', array('style' => 'font-weight:400;margin-top:20px;')) }}
+                        {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'style' => 'resize:none;')) }}
                     </div>
                 </div>
             </div>
