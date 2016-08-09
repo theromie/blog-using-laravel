@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIdColumn extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateIdColumn extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function($table){
-            $table->integer('user_id')->unsigned()->after('body');
-
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateIdColumn extends Migration
      */
     public function down()
     {
-        $table->dropForeign('posts_user_id_foreign');
+        Schema::drop('categories');
     }
 }

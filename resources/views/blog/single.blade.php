@@ -24,6 +24,8 @@
                     	<h5 class="post-subtitle" style="text-align:justify;line-height: 30px;">
                         	{{ $post->body }}
                     	</h5>
+                        <hr/>
+                        Posted In : <h4 class="label label-success label-lg">{{ $post->category->name }}</h4>
 			    	</div>
 			  	</div>
 			</div>
