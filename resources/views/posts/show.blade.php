@@ -25,9 +25,13 @@
                     	<h5 class="post-subtitle" style="text-align:justify;line-height: 30px;">
                         	{{ $post->body }}
                     	</h5>
+                    	@foreach($post->tags as $tag)
+                    		<span class="label label-warning">{{ $tag->name }}</span>
+                    	@endforeach
 			    	</div>
 			  	</div>
-			</div>
+			</div>			
+			<a href="{{ route('posts.index') }}" class="btn btn-default btn-block"><< See All Post</a>			
 		</div>
 		<div class="col-lg-4">
 			<div class="well">
@@ -38,7 +42,7 @@
 				<dl class="dl-horizontal">
 					<label>Category:</label>
         			<h6>{{ $post->category->name }}</a></h6>
-				</dl>
+				</dl>				
 				<dl class="dl-horizontal">
 					<label>Created At:</label>
         			<h6>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</h6>

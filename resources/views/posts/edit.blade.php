@@ -32,6 +32,9 @@
                         {{ Form::label('category_id', 'Category:', array('style' => 'font-weight:500;margin-top:20px;')) }}
                         {{ Form::select('category_id', $categories, null, array('class' => 'form-control', 'required' => '')) }}
 
+                        {{ Form::label('tags', 'Tag:', array('style' => 'font-weight:500;margin-top:20px;')) }}
+                        {{ Form::select('tags[]', $tags, null, array('class' => 'form-control js-example-basic-multiple', 'required' => '', 'multiple' => 'multiple')) }}
+
                         {{ Form::label('body', 'Post Body:', array('style' => 'font-weight:400;margin-top:20px;')) }}
                         {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'style' => 'resize:none;')) }}
                     </div>
@@ -62,5 +65,13 @@
         {!!  Form::close() !!}
     </div>
 </div>
+
+@endsection
+
+@section('scripts')
+
+    <script type="text/javascript">
+        $(".js-example-basic-multiple").select2().val({{ $post->tags()->getRelatedIds() }}).trigger('change');
+    </script>
 
 @endsection

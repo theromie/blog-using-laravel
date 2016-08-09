@@ -25,10 +25,11 @@
                         	{{ $post->body }}
                     	</h5>
                         <hr/>
-                        Posted In : <h4 class="label label-success label-lg">{{ $post->category->name }}</h4>
-			    	</div>
+                        Posted In : <h4 class="label label-success">{{ $post->category->name }}</h4>
+			    	</div>                    
 			  	</div>
 			</div>
+            <a href="/" class="btn btn-default btn-block"><< See All Post</a>          
 		</div>		
 	</div>
 </div>

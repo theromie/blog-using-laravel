@@ -69,6 +69,8 @@ class PostController extends Controller
         $post->body  = $request->body; 
         Auth::user()->posts()->save($post);
 
+        $post->tags()->sync($request->tags, false);
+
         Session::flash('success', 'Post Successfully published!');
         //redirect to home page
         return redirect()->route('posts.show', $post->id);
@@ -85,7 +87,8 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $categories = Category::find($id);
-        return view('posts.show')->withPost($post)->withCategories($categories);
+        $tags = Tag::find($id);
+        return view('posts.show')->withPost($post)->withCategories($categories)->withTags($tags);
     }
 
     /**
@@ -103,7 +106,13 @@ class PostController extends Controller
         foreach ($categories as $category) {
             $cats[$category->id] = $category->name;
         }
-        return view('posts.edit')->withPost($post)->withCategories($cats);
+
+        $tags = Tag::all();
+        $tags2 = array();
+        foreach ($tags as $tag) {
+            $tags2[$tag->id] = $tag->name;
+        }
+        return view('posts.edit')->withPost($post)->withCategories($cats)->withTags($tags2);
     }
 
     /**
@@ -133,10 +142,12 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->slug  = $request->input('slug');
-        $post->category_id  = $request->input('category_id');
+        $post->category_id  = $request->input('category_id');        
         $post->body  = $request->input('body');
 
         $post->save();
+
+        $post->tags()->sync($request->tags);
 
         Session::flash('success', 'Post Successfully Updated!');
         //redirect to home page

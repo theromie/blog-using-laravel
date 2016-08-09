@@ -78,15 +78,13 @@
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ asset('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('components/js/parsley.min.js') }}"></script>
     <script src="{{ asset('components/js/select2.min.js') }}"></script>
-    <script type="text/javascript">
-        $(".js-example-basic-multiple").select2();
-    </script>
+    @yield('scripts')
   </body>
 </html>

@@ -37,7 +37,7 @@
 			    </select>
 
 			    {{ Form::label('tags', 'Tag:', array('style' => 'font-weight:500;margin-top:20px;')) }}
-			    <select class="form-control js-example-basic-multiple" name="tags" multiple="multiple">
+			    <select class="form-control js-example-basic-multiple" name="tags[]" multiple="multiple">
 				    @foreach($tags as $tag)
 				    	<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 				    @endforeach
