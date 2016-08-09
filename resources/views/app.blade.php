@@ -13,6 +13,7 @@
     <link href="{{ asset('components/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('components/css/clean-blog.min.css') }}" rel="stylesheet">
     <link href="{{ asset('components/css/parsley.css') }}" rel="stylesheet">
+    <link href="{{ asset('components/css/select2.min.css') }}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -51,7 +52,8 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li style="border-bottom:1px solid #CCC;"><a href="{{ route('posts.index') }}">My Posts</a></li>
-                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('categories.index') }}">Category</a></li>
+                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('categories.index') }}">Categories</a></li>
+                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('tags.index') }}">Tags</a></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>                          
                         </ul>
                     </li>
@@ -82,5 +84,9 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ asset('components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('components/js/parsley.min.js') }}"></script>
+    <script src="{{ asset('components/js/select2.min.js') }}"></script>
+    <script type="text/javascript">
+        $(".js-example-basic-multiple").select2();
+    </script>
   </body>
 </html>

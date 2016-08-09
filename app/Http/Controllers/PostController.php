@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\User;
 use App\Category;
+use App\Tag;
 use Session;
 use Auth;
 
@@ -26,7 +27,6 @@ class PostController extends Controller
 
     public function index()
     {
-        //
         $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
         return view('posts.index')->withPosts($posts);
         
@@ -40,7 +40,8 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('posts.create')->withCategories($categories); 
+        $tags = Tag::all();
+        return view('posts.create')->withCategories($categories)->withTags($tags); 
     }
 
     /**

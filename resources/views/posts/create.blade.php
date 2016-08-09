@@ -36,6 +36,13 @@
 				    @endforeach
 			    </select>
 
+			    {{ Form::label('tags', 'Tag:', array('style' => 'font-weight:500;margin-top:20px;')) }}
+			    <select class="form-control js-example-basic-multiple" name="tags" multiple="multiple">
+				    @foreach($tags as $tag)
+				    	<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
+				    @endforeach
+			    </select>
+
 			    {{ Form::label('body', 'Post Body:', array('style' => 'font-weight:500;margin-top:20px;'))}}
 			    {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'style' => 'resize:none;'))}}
 
