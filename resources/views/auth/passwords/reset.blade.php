@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', 'Login : Blog Using Laravel')
+@section('title', 'Forgot Password : Blog Using Laravel')
 @section('content')
 <header class="intro-header" style="background-image: url('{{ asset('components/img/post-bg.jpg') }}'); min-height:550px;">
     <div class="container">
@@ -8,22 +8,21 @@
                 @include('message')         
                 <h3 class="text-center" style="color:#FFF;">Login to My Blog</h3>
                 <div class="auth">                
-                    {!! Form::open() !!}
+                    {!! Form::open(['url' => 'password/reset', 'method' => "post"]) !!}
+
+                        {{ Form::hidden('token', $token) }}
 
                         {{ Form::label('email', 'Email:')}}
                         {{ Form::email('email', null, ['class' => 'form-control', 'autofocus']) }}
 
                         {{ Form::label('password', 'Password:')}}
-                        {{ Form::password('password', ['class' => 'form-control'])}}
-                         
-                        <br/>               
-                        {{ Form::checkbox('remember') }}&nbsp;{{ Form::label('remeber', 'Remember Me')}}
+                        {{ Form::password('password', ['class' => 'form-control'])}}                    
 
+                        {{ Form::label('password_confirmation', 'Confirm Password:')}}
+                        {{ Form::password('password_confirmation', ['class' => 'form-control'])}}  
+                        
                         <br/>
-                        {{ Form::submit('Login', array('class' => 'btn btn-primary btn-block')) }}
-
-                        <div class="text-center" style="margin-top:20px;"><h5><a href="{{ url('password/reset')}}" class="text-primary">Forgot Password[?]</a>
-
+                        {{ Form::submit('Reset Password', array('class' => 'btn btn-primary btn-block')) }}
                     {!! Form::close() !!}
 
                     <div class="text-center" style="margin-top:20px;"><h5><a href="register" class="text-primary">Register</a></h5></div>
