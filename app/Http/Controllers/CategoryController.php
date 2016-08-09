@@ -47,9 +47,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
-            'name' => 'required|max:50'
-            ));
+        $this->validate($request, array('name' => 'required|max:255'));
 
         $category = new Category;
 

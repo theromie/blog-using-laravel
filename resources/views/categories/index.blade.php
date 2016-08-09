@@ -43,7 +43,7 @@
 
                     <h2>New Category</h2>
                     {{ Form::label('name', 'Name:', array('style' => 'font-weight:500;'))}}
-                    {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '50', 'autofocus')) }}                
+                    {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'autofocus')) }}                
 
                     {{ Form::submit('Create Category', array('class' => 'btn btn-success btn-block', 'style' => 'margin-top:20px; font-weight:400; padding:8px;'))}}
 

@@ -28,8 +28,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
-        return view('posts.index')->withPosts($posts);
-        
+        return view('posts.index')->withPosts($posts);        
     }
 
     /**

@@ -26,6 +26,10 @@
                     	</h5>
                         <hr/>
                         Posted In : <h4 class="label label-success">{{ $post->category->name }}</h4>
+                        <h5>Tags :
+                        @foreach($post->tags as $tag)
+                            <span class="label label-warning">{{ $tag->name }}</span>
+                        @endforeach</h5>
 			    	</div>                    
 			  	</div>
 			</div>
