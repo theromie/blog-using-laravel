@@ -23,7 +23,7 @@
 				<div class="panel-body">			    	
 			    	<div class="col-xs-12">                    	
                     	<h5 class="post-subtitle" style="text-align:justify;line-height: 30px;">
-                        	{{ $post->body }}
+                        	{!! $post->body !!}
                     	</h5>
                     	@foreach($post->tags as $tag)
                     		<span class="label label-warning">{{ $tag->name }}</span>

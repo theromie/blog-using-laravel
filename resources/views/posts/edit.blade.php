@@ -71,7 +71,12 @@
 @section('scripts')
 
     <script type="text/javascript">
-        $(".js-example-basic-multiple").select2().val({{ $post->tags()->getRelatedIds() }}).trigger('change');
+        $(".js-example-basic-multiple").select2().val({{ $post->tags()->getRelatedIds() }}).trigger('change');        
+        tinymce.init({
+           selector: 'textarea',
+           plugins: "link code",
+           menubar: false
+        });
     </script>
 
 @endsection

@@ -53,3 +53,14 @@
 	</div>
 </div>
 @endsection
+@section('scripts')
+	
+    <script type="text/javascript">
+        tinymce.init({
+		   selector: 'textarea',
+		   plugins: "link code",
+		   menubar: false
+		});
+    </script>
+
+@endsection
