@@ -164,7 +164,7 @@ hr.small {
 @media only screen and (min-width: 768px) {
 	.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
 	    color: #FFF;
-	    background-color: transparent !important;
+	    background-color: #5cb85c !important;
 	}
 	.dropdown-menu{
 		min-width: 102px !important;
@@ -177,9 +177,9 @@ hr.small {
 		color: #494545 !important;		
 		padding: 5px 20px !important;		
 	}
-	.dropdown-menu li a:hover{
-		font-weight: bold;
-		background-color: transparent;
+	.dropdown-menu li a:hover{		
+		background-color: #5cb85c;
+        color: #FFF !important;
 	}    
     .auth{
         padding: 10px;
@@ -380,4 +380,19 @@ form .row:first-child .floating-label-form-group {
     margin-left: 42px;
     font-size: 16px;
     line-height: 1.3em;
+}
+
+/*LOGIN*/
+.nav li a.login{
+    padding:2px 5px 2px 5px;
+    margin: 17px 20px 0 0;
+    font-size: 11px;
+}
+.nav li a.login:hover{
+    color:#FFF;
+    background-color: #5cb85c;
+}
+
+.nav li a.login:active{
+    background-color: #5cb85c;
 }

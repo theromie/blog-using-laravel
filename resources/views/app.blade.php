@@ -48,18 +48,19 @@
                     </li>
                     @if (Auth::check())                    
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hi, {{ Auth::user()->name }}
+                        <a class="dropdown-toggle login btn btn-sm btn-success" type="button" data-toggle="dropdown" href="#">Hi, {{ Auth::user()->name }}
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('posts.index') }}">My Posts</a></li>
-                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('categories.index') }}">Categories</a></li>
-                            <li style="border-bottom:1px solid #CCC;"><a href="{{ route('tags.index') }}">Tags</a></li>
+                            <li><a href="{{ route('posts.index') }}">My Posts</a></li>
+                            <li><a href="{{ route('categories.index') }}">Categories</a></li>
+                            <li><a href="{{ route('tags.index') }}">Tags</a></li>
+                            <li class="divider"></li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>                          
                         </ul>
                     </li>
                     @else
                         <li>
-                            <a href="{{ route('login') }}" class="btn btn-link">Login</a>
+                            <a href="{{ route('login') }}" class="btn btn-sm btn-success login">Login</a>
                         </li>
                     @endif
                 </ul>
