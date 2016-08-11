@@ -17,4 +17,8 @@ class Post extends Model
     public function tags(){
     	return $this->belongsToMany('App\Tag');
     }
+
+    public function comments(){
+    	return $this->HasMany('App\Comment');
+    }
 }

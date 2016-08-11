@@ -27,11 +27,35 @@
                     	</h5>
                     	@foreach($post->tags as $tag)
                     		<span class="label label-warning">{{ $tag->name }}</span>
-                    	@endforeach
+                    	@endforeach                    	
 			    	</div>
 			  	</div>
-			</div>			
-			<a href="{{ route('posts.index') }}" class="btn btn-default btn-block"><< See All Post</a>			
+			</div>
+			<div class="backend-comment">
+        		<h3>Comments ({{ $post->comments()->count() }})</h3><hr/>
+        		<table class="table table-striped text-center">
+                <thead>
+                    <tr>                      
+                      <th class="text-center">Name</th>
+                      <th class="text-center">Email</th>
+                      <th class="text-center">Comment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($post->comments as $comment)
+                    <tr>                        
+                        <td>{{ $comment->name }}</td>
+                        <td>{{ $comment->email }}</td>
+                        <td>{{ $comment->comment }}</td>
+                        <td><a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td><a href="{{ route('comments.delete', $comment->id) }}" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        	</div>			
+			<a href="{{ route('posts.index') }}" class="btn btn-default btn-block"><< See All Post</a>	
+			<div class="clearfix"></div>
 		</div>
 		<div class="col-lg-4">
 			<div class="well">
