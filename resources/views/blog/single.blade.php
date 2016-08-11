@@ -1,5 +1,5 @@
 @extends('app')
-@section('title', "Blog Using Laravel | $post->title")
+@section('title', "$post->title | Blog Using Laravel")
 @section('content')
 
 <header class="intro-header" style="background-image: url('{{ asset('components/img/post-bg.jpg') }}')">
