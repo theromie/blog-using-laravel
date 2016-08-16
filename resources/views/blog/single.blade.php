@@ -22,7 +22,8 @@
             @include('message')			
 			<div class="panel">
 				<div class="panel-body">			    	
-			    	<div class="col-xs-12">                    	
+			    	<div class="col-xs-12">
+                        <img src="{{asset('post_images/'. $post->image)}}" alt="{{ $post->title }}" height="400" width="800" class="img-responsive">                    	
                     	<h5 class="post-subtitle" style="text-align:justify;line-height: 30px;">
                         	{!! $post->body !!}
                     	</h5>
@@ -61,15 +62,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 {{ Form::label('name', 'Name:', array('style' => 'font-weight:500;'))}}
-                                {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'autofocus')) }}
+                                {{ Form::text('name', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
                             </div>
                             <div class="col-md-6">
                                 {{ Form::label('email', 'Email:', array('style' => 'font-weight:500;'))}}
-                                {{ Form::text('email', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'autofocus')) }}
+                                {{ Form::text('email', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
                             </div>
                             <div class="col-md-12">
                                 {{ Form::label('comment', 'Comment:', array('style' => 'font-weight:500;margin-top:20px;'))}}
-                                {{ Form::textarea('comment', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'style' => 'resize:none;', 'rows' => '5', 'autofocus')) }}
+                                {{ Form::textarea('comment', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'style' => 'resize:none;', 'rows' => '5')) }}
                             </div>
                         </div>
                         {{ Form::submit('add comment', ['class' => 'btn btn-success btn-block', 'style' => 'font-weight:500;margin-top:20px;']) }}

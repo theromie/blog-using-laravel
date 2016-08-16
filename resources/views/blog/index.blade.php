@@ -33,7 +33,7 @@
                             </h3>
                         </a>
                         <h5 class="post-subtitle">
-                            {{ substr(strip_tags($post->body), 0, 100) }}{{ strlen(strip_tags($post->body) > 100 ? "..." : "" }}
+                            {{ substr(strip_tags($post->body), 0, 100) }}{{ strlen(strip_tags($post->body)) > 100 ? "..." : ""}}
                         </h5>
                         <h6 class="post-meta text-muted">Created At {{ date('M j, Y', strtotime($post->created_at)) }}</h6>
                     </div>

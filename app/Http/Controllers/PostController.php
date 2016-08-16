@@ -12,6 +12,8 @@ use App\Category;
 use App\Tag;
 use Session;
 use Auth;
+use Image;
+use Purifier;
 
 class PostController extends Controller
 {
@@ -65,7 +67,16 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug  = $request->slug;
         $post->category_id  = $request->category_id;
-        $post->body  = Purifier::clean($request->body); 
+        $post->body  = Purifier::clean($request->body);
+        if($request->hasFile('upload')){
+            $image = $request->file('upload');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('/post_images/'.$filename);
+            Image::make($image)->resize(800,400)->save($location);
+
+            $post->image = $filename;
+        }
+
         Auth::user()->posts()->save($post);
 
         $post->tags()->sync($request->tags, false);

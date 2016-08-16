@@ -24,7 +24,7 @@
             <div class="panel" style="box-shadow: 0 5px 5px rgba(0,0,0,.1);">
                 <div class="panel-body">
                     <div class="col-lg-4 col-xs-12">
-                        <img src="{{ asset('components/img/home-bg.jpg') }}" class="img-responsive img-thumbnail">
+                        <img src="post_images/{{ $post->image }}" class="img-responsive img-thumbnail">
                     </div>
                     <div class="col-xs-12 col-lg-8">
                         <a href="{{ url('blog/'.$post->slug) }}">
@@ -33,7 +33,7 @@
                             </h4>
                         </a>
                         <h5 class="post-subtitle" style="line-height:20px;">
-                            {{ substr(strip_tags($post->body), 0, 100) }}{{ strlen(strip_tags($post->body) > 100 ? "..." : "" }}
+                            {{ substr(strip_tags($post->body), 0, 100) }}{{ strlen(strip_tags($post->body)) > 100 ? "..." : ""}}
                         </h5>
                         <h6 class="post-meta text-muted">Created On {{ date('M j, Y h:ia', strtotime($post->created_at)) }}</h6>
                     </div>

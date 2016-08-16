@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "5.2.*",
         "tinymce/tinymce": "^4.4",
-        "mews/purifier": "^2.0"
+        "mews/purifier": "^2.0",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

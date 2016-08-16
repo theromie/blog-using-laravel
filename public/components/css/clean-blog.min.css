@@ -396,3 +396,14 @@ form .row:first-child .floating-label-form-group {
 .nav li a.login:active{
     background-color: #5cb85c;
 }
+.intro-header:after{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.6;       
+}

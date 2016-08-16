@@ -21,7 +21,7 @@
 			@include('message')
 			<h2>Create New Post</h2>
 			<hr>
-			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '')) !!}
+			{!! Form::open(array('route' => 'posts.store', 'data-parsley-validate' => '', 'files' => true)) !!}
 
 			    {{ Form::label('title', 'Title:', array('style' => 'font-weight:500;'))}}
 			    {{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'autofocus')) }}
@@ -42,6 +42,9 @@
 				    	<option value='{{ $tag->id }}'>{{ $tag->name }}</option>
 				    @endforeach
 			    </select>
+
+				{{ Form::label('upload', 'Upload Image:', array('style' => 'font-weight:500;margin-top:20px;'))}}
+			    {{ Form::file('upload', array('class' => 'form-control', 'required' => ''))}}
 
 			    {{ Form::label('body', 'Post Body:', array('style' => 'font-weight:500;margin-top:20px;'))}}
 			    {{ Form::textarea('body', null, array('class' => 'form-control', 'required' => '', 'style' => 'resize:none;'))}}
